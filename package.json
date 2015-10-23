@@ -7,10 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ben",
-  "license": "ISC",
-  "dependencies": {
-    "csso": "^1.4.1",
-    "html-minifier": "^0.8.0",
-    "uglify-js": "^2.5.0"
-  }
+  "license": "ISC"
 }
