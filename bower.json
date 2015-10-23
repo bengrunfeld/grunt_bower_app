@@ -1,0 +1,21 @@
+{
+  "name": "grunt_bower_webapp",
+  "description": "An app that is set up using npm, bower and grunt",
+  "main": "index.js",
+  "authors": [
+    "Ben"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
+}
