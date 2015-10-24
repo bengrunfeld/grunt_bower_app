@@ -1,20 +1,33 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    clean: ['dist', 'tmp'],
+    processhtml: {
+      // Swaps the urls from dev files like jquery.js to minified production files like jquery.min.js
+      dist: {
+        files: {
+          'tmp/index.html': ['dev/index.html'],
+          'tmp/about.html': ['dev/about.html'],
+          'tmp/contact.html': ['dev/contact.html'],
+        }
+      }
+    },
     jshint: {
         all: ['Gruntfile.js', 'dev/js/*.js']
     },
-    clean: ['dist/'],
     copy: {
       main: {
         files: [
+          // jQuery
           {expand: true, flatten: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'dist/js', filter: 'isFile'},
-
+          // Bootstrap JS
           {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/js/bootstrap.min.js'], dest: 'dist/js', filter: 'isFile'},
-
+          // Bootstrap CSS 
           {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/css/bootstrap.min.css'], dest: 'dist/css', filter: 'isFile'} ,
-
+          // Bootstrap Fonts
           {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'dist/fonts', filter: 'isFile'},
+          // HTML files with URL's swapped
+          {expand: true, flatten: true, src: ['tmp/*'], dest: 'dist/', filter: 'isFile'},
         ],
       }
     },
@@ -31,9 +44,9 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: { 
-          'dist/index.html': 'dev/index.html', 
-          'dist/about.html': 'dev/about.html', 
-          'dist/contact.html': 'dev/contact.html'
+          'dist/index.html': 'tmp/index.html', 
+          'dist/about.html': 'tmp/about.html', 
+          'dist/contact.html': 'tmp/contact.html'
         }
       }    
     },
@@ -41,12 +54,13 @@ module.exports = function(grunt) {
       target: {
         files: {
           'dist/css/style.min.css': ['dev/css/style.css', 'dev/css/style2.css'] 
-      }
+        }
       }
     },
   }); // grunt.initConfig
   
   // Load in Grunt's plugins
+  grunt.loadNpmTasks('grunt-processhtml');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -55,7 +69,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default tasks
-  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'uglify', 'htmlmin', 'cssmin']);
+  grunt.registerTask('default', ['clean', 'processhtml', 'jshint', 'copy', 'uglify', 'htmlmin', 'cssmin']);
 
 };
 
