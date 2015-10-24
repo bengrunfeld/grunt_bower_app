@@ -23,19 +23,21 @@ To run the app,
 
 ## How it works
 
-We will use Bower to install and maintain the dependencies of:
+We use NPM to install Grunt, Bower, and all of Grunt's plugins, listed below.
+
+We will then use Bower to install and maintain the app's dependencies, which in this case are:
 
 * Twitter Bootstrap
 * jQuery 
 
-We will use Grunt to perform the following tasks:
+Then we use Grunt to perform the following tasks:
 
 * Uglify and minify our HTML, CSS and JS
 * Copy custom HTML, CSS & JS minified files to a dist folder
 * Copy files our app is dependant on to the dist folder (e.g. bootstrap CSS & JS)
 * Update the paths in our HTML to redirect to the minified files
 
-To perform the above tasks, we'll be using the following Grunt plugins:
+To perform these tasks, we use the following Grunt plugins:
 
 * [grunt-processhtml](https://www.npmjs.com/package/grunt-processhtml) - redirect paths
 * [grunt-contrib-jshint](https://www.npmjs.com/package/grunt-contrib-jshint) - lint our Javascript
@@ -45,6 +47,13 @@ To perform the above tasks, we'll be using the following Grunt plugins:
 * [grunt-contrib-htmlmin](https://www.npmjs.com/package/grunt-contrib-htmlmin) - minify our html
 * [grunt-contrib-copy](https://www.npmjs.com/package/grunt-contrib-copy) - copy dependency files (e.g. bootstrap css/js) to dist 
 
+## But.... why??
+
+Using the workflow listed in `Installation` and `Usage` at the top of this doc, you install bootstrap, install all of the dependencies your app will use, then lint, uglify and minify your HTML, CSS and Javascript. 
+
+The most compact possible copy of the app files are then placed in a distribution directory called `dist`. The `dist` directory gets completely deleted before Grunt executes, and then gets freshly created during the Grunt process, ensuring that old junky files don't hang around inside it from previous compiles. 
+ 
+All that happens using three commands, which usually take less than 20 seconds to complete.
 
 ## Why are dist and tmp being pushed to the repo?
 
