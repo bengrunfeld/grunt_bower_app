@@ -55,7 +55,7 @@ The most compact possible copy of the app files are then placed in a distributio
  
 All that happens using three commands, which usually take less than 20 seconds to complete.
 
-What that means is that the only thing the develop has to worry about is, well, developing. 
+What that means is that the only thing the developer has to worry about is, well, developing. 
 
 All they ever have to focus on is writing the HTML, CSS, and Javascript that eventually becomes their Web App. All other installation, linting and compilation tasks are handled by automated tools. **Woot!** 
 
