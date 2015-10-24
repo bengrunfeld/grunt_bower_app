@@ -49,11 +49,15 @@ To perform these tasks, we use the following Grunt plugins:
 
 ## But.... why??
 
-Using the workflow listed in `Installation` and `Usage` at the top of this doc, you install bootstrap, install all of the dependencies your app will use, then lint, uglify and minify your HTML, CSS and Javascript. 
+Using the workflow listed in `Installation` and `Usage` at the top of this doc, you install bootstrap, install all of the dependencies your app will use, then lint, uglify and minify your HTML, CSS and Javascript. All the paths inside `link` and `script` tags are updated to the new minified files automatically, without the developer having to worry about them. 
 
 The most compact possible copy of the app files are then placed in a distribution directory called `dist`. The `dist` directory gets completely deleted before Grunt executes, and then gets freshly created during the Grunt process, ensuring that old junky files don't hang around inside it from previous compiles. 
  
 All that happens using three commands, which usually take less than 20 seconds to complete.
+
+What that means is that the only thing the develop has to worry about is, well, developing. 
+
+All they ever have to focus on is writing the HTML, CSS, and Javascript that eventually becomes their Web App. All other installation, linting and compilation tasks are handled by automated tools. **Woot!** 
 
 ## Why are dist and tmp being pushed to the repo?
 
