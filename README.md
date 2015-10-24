@@ -27,4 +27,6 @@ To perform the above tasks, we'll be using the following Grunt plugins:
 * [grunt-contrib-copy]() - copy dependency files (e.g. bootstrap css/js) to dist 
 
 
+## Why is Dist being pushed to the repo?!
 
+In regular production applications, `dist` would **never** be pushed to the main repo. Because the main purpose of this app is illustrative, I want to show the viewer what the finished `dist` folder should look like, with regards to the different plugins being run in Grunt.
