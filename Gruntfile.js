@@ -23,17 +23,39 @@ module.exports = function(grunt) {
         src: 'dev/js/*.js',
         dest: 'dist/js/main.min.js'
       }
-    }
-  });
+    },
+    htmlmin: { 
+      dist: { 
+        options: { 
+          removeComments: true,
+          collapseWhitespace: true
+        },
+        files: { 
+          'dist/index.html': 'dev/index.html', 
+          'dist/about.html': 'dev/about.html', 
+          'dist/contact.html': 'dev/contact.html'
+        }
+      }    
+    },
+    cssmin: {
+      target: {
+        files: {
+          'dist/css/style.min.css': ['dev/css/style.css', 'dev/css/style2.css'] 
+      }
+      }
+    },
+  }); // grunt.initConfig
   
   // Load in Grunt's plugins
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-htmlmin');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   // Default tasks
-  grunt.registerTask('default', ['jshint', 'clean', 'copy']);
+  grunt.registerTask('default', ['jshint', 'clean', 'copy', 'uglify', 'htmlmin', 'cssmin']);
 
 };
 
