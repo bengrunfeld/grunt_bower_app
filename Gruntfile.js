@@ -1,12 +1,6 @@
 module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    // uglify: {
-    //   build: {
-    //     src: 'dev/js/*.js',
-    //     dest: 'dist/js/main.min.js'
-    //   }
-    // }
     jshint: {
         all: ['Gruntfile.js', 'dev/js/*.js']
     },
@@ -14,16 +8,22 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'dist/js', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_components/jquery/dist/jquery.min.js'], dest: 'dist/js', filter: 'isFile'},
 
-          {expand: true, src: ['bower_components/bootstrap/dist/js/bootstrap.min.js'], dest: 'dist/js', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/js/bootstrap.min.js'], dest: 'dist/js', filter: 'isFile'},
 
-          {expand: true, src: ['bower_components/bootstrap/dist/css/bootstrap.min.css'], dest: 'dist/css', filter: 'isFile'} ,
+          {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/css/bootstrap.min.css'], dest: 'dist/css', filter: 'isFile'} ,
 
-          {expand: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'dist/fonts', filter: 'isFile'},
+          {expand: true, flatten: true, src: ['bower_components/bootstrap/dist/fonts/*'], dest: 'dist/fonts', filter: 'isFile'},
         ],
       }
     },
+    uglify: {
+      build: {
+        src: 'dev/js/*.js',
+        dest: 'dist/js/main.min.js'
+      }
+    }
   });
   
   // Load in Grunt's plugins
