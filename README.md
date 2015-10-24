@@ -2,6 +2,25 @@
 
 This app aims to illustrate the advantages of using Grunt and Bower to help develop a basic web app.
 
+## Installation
+
+To install the app, do the following:
+
+    git clone git@github.com:bengrunfeld/grunt_bower_app.git
+    cd grunt_bower_app
+    npm install
+    bower install
+    grunt
+
+## Usage
+
+To run the app, 
+
+1. Open `dist/index.html` in a browser
+2. Open the Console in Chrome Dev Tools or FF/IE/Safari equivalent  
+3. Press some buttons and see the output in the Console
+4. Click on the `About Us` and `Contact` page links in the top navbar to see that the nav all works 
+
 ## How it works
 
 We will use Bower to install and maintain the dependencies of:
