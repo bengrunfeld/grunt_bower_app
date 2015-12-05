@@ -44,6 +44,7 @@ module.exports = function(grunt) {
           collapseWhitespace: true
         },
         files: { 
+          // Place your html files here so that they can be copied to dist
           'dist/index.html': 'tmp/index.html', 
           'dist/about.html': 'tmp/about.html', 
           'dist/contact.html': 'tmp/contact.html'
